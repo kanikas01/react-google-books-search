@@ -1,18 +1,20 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import Nav from "./components/Nav";
+import { Col, Row, Container } from "./components/Grid";
 import "./App.css";
+import Jumbotron from "./components/Jumbotron/Jumbotron";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Nav />
+        <Jumbotron />
+        <Col size="12">
+          <Row>
+            
+          </Row>
+        </Col>
       </div>
     );
   }
