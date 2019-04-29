@@ -5,22 +5,31 @@ import "./App.css";
 import Jumbotron from "./components/Jumbotron";
 import Results from "./components/Results";
 import SavedBooks from "./components/SavedBooks";
-import Search from "./components/Search";
 
 class App extends Component {
+
+  state = {
+    location: window.location.pathname
+  }
+
   render() {
+
+    let display;
+
+    if (this.state.location === "/") {
+      display = <Results />;
+    } else {
+      display = <SavedBooks />;
+    }
+
     return (
       <div>
-        <Nav />
+        <Nav location={this.state.location}/>
         <Jumbotron />
         <Container fluid>
           <Row>
             <Col size="12">
-              {window.location.pathname === "/" ? (
-                <Results />
-              ) : (
-                <SavedBooks />
-              )}
+              {display}
             </Col>
           </Row>
         </Container>
@@ -30,3 +39,4 @@ class App extends Component {
 }
 
 export default App;
+
