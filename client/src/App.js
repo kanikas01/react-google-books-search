@@ -12,7 +12,7 @@ class App extends Component {
         <Jumbotron />
         <Col size="12">
           <Row>
-            
+            <Container />
           </Row>
         </Col>
       </div>
