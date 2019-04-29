@@ -5,6 +5,7 @@ import "./App.css";
 import Jumbotron from "./components/Jumbotron";
 import Results from "./components/Results";
 import SavedBooks from "./components/SavedBooks";
+import Search from "./components/Search";
 
 class App extends Component {
 
@@ -17,7 +18,10 @@ class App extends Component {
     let display;
 
     if (this.state.location === "/") {
-      display = <Results />;
+      display = <div>
+                  <Search />
+                  <Results />
+                </div>;
     } else {
       display = <SavedBooks />;
     }
