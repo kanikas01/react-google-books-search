@@ -1,14 +1,32 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
+import API from "../../utils/API";
 import "./Search.css";
+import DeleteBtn from "../../components/DeleteBtn";
+import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
 
 
 class Search extends Component {
 
+  state = {
+    books: [],
+    query: ""
+  };
+
+  handleInputChange = event => {
+    this.setState({ query: event.target.value });
+  };
+
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(event.target);
-  };
+    API.searchBooks(this.state.query)
+      .then(res => { 
+        this.setState ({ books: res.data.items });
+        console.log(this.state.books);
+      })
+      .catch(err => console.log(err));
+    };
 
   render () {
     return (
@@ -21,8 +39,17 @@ class Search extends Component {
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Book Search</h5>
-              <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2 mb-4 mt-2 col-12" id="search-input" type="search" placeholder="Title" aria-label="Search" />
+              <form 
+                className="form-inline my-2 my-lg-0"
+              >
+                <input 
+                  className="form-control mr-sm-2 mb-4 mt-2 col-12" 
+                  id="search-input" 
+                  type="search" 
+                  placeholder="Title" 
+                  aria-label="Search"
+                  onChange={this.handleInputChange}
+                 />
                 <button 
                   className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
                   type="submit"
@@ -32,6 +59,24 @@ class Search extends Component {
             </div>
           </div>
         </div>
+        <Container>
+          {this.state.books.length ? (
+            <List>
+              {this.state.books.map(book => (
+                <ListItem key={book.id}>
+                  <a href={book.volumeInfo.previewLink}>
+                    <strong>
+                      {book.volumeInfo.title} by {book.volumeInfo.authors}
+                    </strong>
+                  </a>
+                  <DeleteBtn />
+                </ListItem>
+              ))}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </Container>
       </div>
     );
   }
