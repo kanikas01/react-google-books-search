@@ -3,9 +3,6 @@ const axios = require("axios");
 
 // Defining methods for the booksController
 module.exports = {
-  search: function(req, res) {
-    return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + req.query);
-  },
   findAll: function(req, res) {
     db.Book
       .find(req.query)
