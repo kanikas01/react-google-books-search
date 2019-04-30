@@ -7,6 +7,7 @@ import Results from "./components/Results";
 import SavedBooks from "./pages/SavedBooks";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
+import "./App.css";
 
 class App extends Component {
 
@@ -20,7 +21,6 @@ class App extends Component {
       <Router>
         <div>
           <Nav location={this.state.location}/>
-          <Jumbotron />
           <Switch>
             <Route exact path="/" component={Search} />
             <Route exact path="/saved" component={SavedBooks} />
