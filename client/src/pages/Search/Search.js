@@ -61,40 +61,41 @@ class Search extends Component {
           {this.state.books.length ? (
             <div>
               {this.state.books.map(book => (   
-                <div class="card my-3">      
-                  <div class="row no-gutters">
-                    <div class="col">
-                      <div class="card-body">
-                        <h5 class="card-title">{book.volumeInfo.title}</h5>
-                        <p class="card-text">
-                          <small class="text-muted">
-                            {book.volumeInfo.authors
-                              ? book.volumeInfo.authors.join(", ")
-                              : ""}
-                          </small>
-                        </p>
-                        <div>
+                <div className="card my-3">      
+                  <div className="row no-gutters">
+                    <div className="card-body book">
+                      <h5 className="card-title">{book.volumeInfo.title}</h5>
+                      <p className="card-text">
+                        <small className="text-muted">
+                          {book.volumeInfo.authors
+                            ? book.volumeInfo.authors.join(", ")
+                            : ""}
+                        </small>
+                      </p>
+                      <div className="card-main">
+                        <div className="col col-md-3">
                           <img 
                             src={book.volumeInfo.imageLinks 
                                   ? book.volumeInfo.imageLinks.smallThumbnail 
                                   : ""} 
-                            class="card-img" 
+                            className="card-img" 
                             alt="book thumbnail" />
-                            <p class="card-text">{book.volumeInfo.description}</p>
                         </div>
-                        
-                        <a class="btn btn-info" 
-                          href={book.volumeInfo.infoLink} 
-                          role="button"
-                          target="_blank" 
-                          rel="noopener noreferrer">View</a>
-                        <button 
-                          className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
-                          type="submit"
-                          onClick={this.handleFormSubmit}
-                        >Save</button>
+                        <div className="col col-md-9">
+                          <p className="card-text">{book.volumeInfo.description}</p>
+                          <a className="btn btn-info col-sm-12 col-md-4 col-lg-2" 
+                            href={book.volumeInfo.infoLink} 
+                            role="button"
+                            target="_blank" 
+                            rel="noopener noreferrer">View</a>
+                          <button 
+                            className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
+                            type="submit"
+                            onClick={this.handleFormSubmit}
+                          >Save</button>
+                        </div>
                       </div>
-                    </div>
+                    </div>                    
                   </div>   
                 </div> 
               ))}
