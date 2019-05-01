@@ -15,7 +15,7 @@ class Search extends Component {
   };
 
   handleInputChange = event => {
-    this.setState({ query: event.target.value });
+    this.setState({ query: event.target.value.replace(" ", "+") });
   };
 
   handleFormSubmit = event => {
@@ -61,18 +61,25 @@ class Search extends Component {
         </div>
         <Container>
           {this.state.books.length ? (
-            <List>
-              {this.state.books.map(book => (
-                <ListItem key={book.id}>
-                  <a href={book.volumeInfo.previewLink}>
-                    <strong>
-                      {book.volumeInfo.title} by {book.volumeInfo.authors}
-                    </strong>
-                  </a>
-                  <DeleteBtn />
-                </ListItem>
+            <div>
+              {this.state.books.map(book => (   
+                <div class="card my-3">      
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                    <img src={book.volumeInfo.imageLinks.smallThumbnail || ""} class="card-img" alt="book thumbnail" />
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{book.volumeInfo.title}</h5>
+                        <p class="card-text">{book.volumeInfo.description}</p>
+                        <p class="card-text"><small class="text-muted">{book.volumeInfo.authors.join(", ") || ""}</small></p>
+                        <DeleteBtn />
+                      </div>
+                    </div>
+                  </div>   
+                </div> 
               ))}
-            </List>
+              </div> 
           ) : (
             <h3>No Results to Display</h3>
           )}
@@ -83,3 +90,16 @@ class Search extends Component {
 }
 
 export default Search;
+
+            {/* <List>
+              {this.state.books.map(book => (
+                <ListItem key={book.id}>
+                  <a href={book.volumeInfo.previewLink}>
+                    <strong>
+                      {book.volumeInfo.title} by {book.volumeInfo.authors}
+                    </strong>
+                  </a>
+                  <DeleteBtn />
+                </ListItem>
+              ))}
+            </List> */}
