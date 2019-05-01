@@ -66,13 +66,17 @@ class Search extends Component {
                 <div class="card my-3">      
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                    <img src={book.volumeInfo.imageLinks.smallThumbnail || ""} class="card-img" alt="book thumbnail" />
+                    <img src={book.volumeInfo.imageLinks 
+                                ? book.volumeInfo.imageLinks.smallThumbnail 
+                                : ""} class="card-img" alt="book thumbnail" />
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">{book.volumeInfo.title}</h5>
                         <p class="card-text">{book.volumeInfo.description}</p>
-                        <p class="card-text"><small class="text-muted">{book.volumeInfo.authors.join(", ") || ""}</small></p>
+                        <p class="card-text"><small class="text-muted">{book.volumeInfo.authors
+                                                                          ? book.volumeInfo.authors.join(", ")
+                                                                          : ""}</small></p>
                         <DeleteBtn />
                       </div>
                     </div>
