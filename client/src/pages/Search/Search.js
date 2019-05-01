@@ -20,10 +20,7 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     API.searchBooks(this.state.query)
-      .then(res => { 
-        this.setState ({ books: res.data.items });
-        console.log(this.state.books);
-      })
+      .then(res => this.setState ({ books: res.data.items }) )
       .catch(err => console.log(err));
     };
 
@@ -118,7 +115,7 @@ class Search extends Component {
               ))}
               </div> 
           ) : (
-            <h3>No Results to Display</h3>
+            <h3>No results</h3>
           )}
         </Container>
 

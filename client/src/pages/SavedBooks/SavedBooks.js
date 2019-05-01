@@ -13,10 +13,7 @@ class SavedBooks extends Component {
 
   componentDidMount() {
     API.getBooks()
-      .then(res => { 
-        this.setState ({ books: res.data });
-        console.log(this.state.books);
-      })
+      .then(res => this.setState ({ books: res.data }) )
       .catch(err => console.log(err));
   }
 
@@ -35,7 +32,7 @@ class SavedBooks extends Component {
       <div>
         <Jumbotron>
           <h1>(React) Google Books Search</h1>
-          <h2>Search for and Save Books of Interest</h2>
+          <h2>Saved Books</h2>
         </Jumbotron>
         <Container>
           {this.state.books.length ? (
@@ -77,7 +74,7 @@ class SavedBooks extends Component {
               ))}
               </div> 
           ) : (
-            <h3>No Results to Display</h3>
+            <h3>You have no saved books</h3>
           )}
         </Container>
       </div>
