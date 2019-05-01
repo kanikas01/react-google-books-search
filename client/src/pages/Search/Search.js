@@ -35,6 +35,8 @@ class Search extends Component {
           <h1>(React) Google Books Search</h1>
           <h2>Search for and Save Books of Interest</h2>
         </Jumbotron>
+
+        {/* search form */}
         <div className="container">
           <div className="card">
             <div className="card-body">
@@ -57,6 +59,8 @@ class Search extends Component {
             </div>
           </div>
         </div>
+
+        {/* book card */}
         <Container>
           {this.state.books.length ? (
             <div>
@@ -104,6 +108,7 @@ class Search extends Component {
             <h3>No Results to Display</h3>
           )}
         </Container>
+
       </div>
     );
   }
