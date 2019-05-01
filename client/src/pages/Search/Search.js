@@ -61,7 +61,7 @@ class Search extends Component {
           {this.state.books.length ? (
             <div>
               {this.state.books.map(book => (   
-                <div className="card my-3">      
+                <div className="card my-3" key={book.id}>      
                   <div className="row no-gutters">
                     <div className="card-body book">
                       <h5 className="card-title">{book.volumeInfo.title}</h5>
