@@ -10,8 +10,7 @@ import { List, ListItem } from "../../components/List";
 class Search extends Component {
 
   state = {
-    books: [],
-    query: ""
+    books: []
   };
 
   handleInputChange = event => {
@@ -26,6 +25,20 @@ class Search extends Component {
         console.log(this.state.books);
       })
       .catch(err => console.log(err));
+    };
+
+    handleSave = (event, index) => {
+      event.preventDefault();
+      let book = this.state.books[index];
+      API.saveBook({
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "",
+        description:  book.volumeInfo.description,
+        image:  book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : "",
+        link: book.volumeInfo.infoLink
+      })
+        .then(res => alert("Book saved!"))
+        .catch(err => console.log(err));
     };
 
   render () {
@@ -64,7 +77,7 @@ class Search extends Component {
         <Container>
           {this.state.books.length ? (
             <div>
-              {this.state.books.map(book => (   
+              {this.state.books.map((book, index) => (   
                 <div className="card my-3" key={book.id}>      
                   <div className="row no-gutters">
                     <div className="card-body book">
@@ -95,7 +108,7 @@ class Search extends Component {
                           <button 
                             className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
                             type="submit"
-                            onClick={this.handleFormSubmit}
+                            onClick={(e) => this.handleSave(e, index) }
                           >Save</button>
                         </div>
                       </div>
