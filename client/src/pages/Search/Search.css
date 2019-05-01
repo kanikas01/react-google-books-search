@@ -6,3 +6,9 @@
 .card-main {
   display: flex;
 }
+
+@media screen and (max-width: 768px) {
+  .card-main {
+    display: block;
+  }
+}

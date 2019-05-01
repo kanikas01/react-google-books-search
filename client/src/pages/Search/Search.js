@@ -73,12 +73,12 @@ class Search extends Component {
                         </small>
                       </p>
                       <div className="card-main">
-                        <div className="col col-md-3">
+                        <div className="col-12 col-md-3">
                           <img 
                             src={book.volumeInfo.imageLinks 
                                   ? book.volumeInfo.imageLinks.smallThumbnail 
                                   : ""} 
-                            className="card-img" 
+                            className="card-img pb-3" 
                             alt="book thumbnail" />
                         </div>
                         <div className="col col-md-9">
