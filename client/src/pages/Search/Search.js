@@ -39,9 +39,7 @@ class Search extends Component {
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Book Search</h5>
-              <form 
-                className="form-inline my-2 my-lg-0"
-              >
+              <form className="form-inline my-2 my-lg-0">
                 <input 
                   className="form-control mr-sm-2 mb-4 mt-2 col-12" 
                   id="search-input" 
@@ -65,19 +63,36 @@ class Search extends Component {
               {this.state.books.map(book => (   
                 <div class="card my-3">      
                   <div class="row no-gutters">
-                    <div class="col-md-4">
-                    <img src={book.volumeInfo.imageLinks 
-                                ? book.volumeInfo.imageLinks.smallThumbnail 
-                                : ""} class="card-img" alt="book thumbnail" />
-                    </div>
-                    <div class="col-md-8">
+                    <div class="col">
                       <div class="card-body">
                         <h5 class="card-title">{book.volumeInfo.title}</h5>
-                        <p class="card-text">{book.volumeInfo.description}</p>
-                        <p class="card-text"><small class="text-muted">{book.volumeInfo.authors
-                                                                          ? book.volumeInfo.authors.join(", ")
-                                                                          : ""}</small></p>
-                        <DeleteBtn />
+                        <p class="card-text">
+                          <small class="text-muted">
+                            {book.volumeInfo.authors
+                              ? book.volumeInfo.authors.join(", ")
+                              : ""}
+                          </small>
+                        </p>
+                        <div>
+                          <img 
+                            src={book.volumeInfo.imageLinks 
+                                  ? book.volumeInfo.imageLinks.smallThumbnail 
+                                  : ""} 
+                            class="card-img" 
+                            alt="book thumbnail" />
+                            <p class="card-text">{book.volumeInfo.description}</p>
+                        </div>
+                        
+                        <a class="btn btn-info" 
+                          href={book.volumeInfo.infoLink} 
+                          role="button"
+                          target="_blank" 
+                          rel="noopener noreferrer">View</a>
+                        <button 
+                          className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
+                          type="submit"
+                          onClick={this.handleFormSubmit}
+                        >Save</button>
                       </div>
                     </div>
                   </div>   
