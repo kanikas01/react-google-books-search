@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import "./Search.css";
-import DeleteBtn from "../../components/DeleteBtn";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
 
 
 class Search extends Component {
@@ -125,16 +123,3 @@ class Search extends Component {
 }
 
 export default Search;
-
-            {/* <List>
-              {this.state.books.map(book => (
-                <ListItem key={book.id}>
-                  <a href={book.volumeInfo.previewLink}>
-                    <strong>
-                      {book.volumeInfo.title} by {book.volumeInfo.authors}
-                    </strong>
-                  </a>
-                  <DeleteBtn />
-                </ListItem>
-              ))}
-            </List> */}
