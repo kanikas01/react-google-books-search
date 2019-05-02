@@ -63,7 +63,7 @@ class SavedBooks extends Component {
                               target="_blank" 
                               rel="noopener noreferrer">View</a>
                             <button 
-                              className="btn btn-secondary my-1 col-sm-12 col-md-4 col-lg-2" 
+                              className="btn btn-danger my-1 col-sm-12 col-md-4 col-lg-2" 
                               type="submit"
                               onClick={(e) => this.handleDelete(e, index) }
                             >Delete</button>
