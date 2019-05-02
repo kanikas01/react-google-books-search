@@ -76,9 +76,9 @@ class Search extends Component {
                 <div className="card my-3" key={book.id}>      
                   <div className="row no-gutters">
                     <div className="card-body book">
-                      <h3 className="card-title">{book.volumeInfo.title}</h3>
+                      <h3 className="card-title search">{book.volumeInfo.title}</h3>
                       <p className="card-text">
-                        <small className="text-muted">
+                        <small className="text-muted search">
                           {book.volumeInfo.authors
                             ? book.volumeInfo.authors.join(", ")
                             : ""}
@@ -90,7 +90,7 @@ class Search extends Component {
                             src={book.volumeInfo.imageLinks 
                                   ? book.volumeInfo.imageLinks.smallThumbnail 
                                   : ""} 
-                            className="card-img pb-3" 
+                            className="card-img pb-3 search" 
                             alt="book thumbnail" />
                         </div>
                         <div className="col col-md-9">

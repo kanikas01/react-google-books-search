@@ -3,6 +3,10 @@
   height: 192px;
 }
 
+.card-img.search {
+  margin-left: 1rem;
+}
+
 .card-main {
   display: flex;
 }
@@ -29,5 +33,9 @@
   .buttons {
     display: block;
     justify-content: unset;
+  }
+
+  h3.search, small.search {
+    margin-left: unset;
   }
 }
