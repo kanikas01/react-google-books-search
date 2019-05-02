@@ -76,7 +76,7 @@ class SavedBooks extends Component {
               ))}
               </div> 
           ) : (
-            <h2>You have no saved books</h2>
+            <h2 className="text-center">You have no saved books</h2>
           )}
         </Container>
       </div>
