@@ -7,9 +7,13 @@
   display: flex;
 }
 
+.btn {
+  border: 1px solid gray;
+}
+
 .buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {

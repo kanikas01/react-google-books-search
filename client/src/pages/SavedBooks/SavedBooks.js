@@ -41,7 +41,7 @@ class SavedBooks extends Component {
                 <div className="card my-3" key={book._id}>      
                   <div className="row no-gutters">
                     <div className="card-body book">
-                      <h5 className="card-title">{book.title}</h5>
+                      <h3 className="card-title">{book.title}</h3>
                       <p className="card-text">
                         <small className="text-muted">
                           {book.authors}
@@ -56,16 +56,18 @@ class SavedBooks extends Component {
                         </div>
                         <div className="col col-md-9">
                           <p className="card-text">{book.description}</p>
-                          <a className="btn btn-info my-1 col-sm-12 col-md-4 col-lg-2" 
-                            href={book.link} 
-                            role="button"
-                            target="_blank" 
-                            rel="noopener noreferrer">View</a>
-                          <button 
-                            className="btn btn-secondary my-1 col-sm-12 col-md-4 col-lg-2" 
-                            type="submit"
-                            onClick={(e) => this.handleDelete(e, index) }
-                          >Delete</button>
+                          <div className="buttons">
+                            <a className="btn btn-info my-1 col-sm-12 col-md-4 col-lg-2" 
+                              href={book.link} 
+                              role="button"
+                              target="_blank" 
+                              rel="noopener noreferrer">View</a>
+                            <button 
+                              className="btn btn-secondary my-1 col-sm-12 col-md-4 col-lg-2" 
+                              type="submit"
+                              onClick={(e) => this.handleDelete(e, index) }
+                            >Delete</button>
+                          </div>
                         </div>
                       </div>
                     </div>                    
@@ -74,7 +76,7 @@ class SavedBooks extends Component {
               ))}
               </div> 
           ) : (
-            <h3>You have no saved books</h3>
+            <h2>You have no saved books</h2>
           )}
         </Container>
       </div>

@@ -76,7 +76,7 @@ class Search extends Component {
                 <div className="card my-3" key={book.id}>      
                   <div className="row no-gutters">
                     <div className="card-body book">
-                      <h5 className="card-title">{book.volumeInfo.title}</h5>
+                      <h3 className="card-title">{book.volumeInfo.title}</h3>
                       <p className="card-text">
                         <small className="text-muted">
                           {book.volumeInfo.authors
@@ -96,13 +96,13 @@ class Search extends Component {
                         <div className="col col-md-9">
                           <p className="card-text">{book.volumeInfo.description}</p>
                           <div className="buttons">
-                            <a className="btn btn-info my-1 col-sm-12 col-md-4 col-lg-2" 
+                            <a className="btn btn-info my-1 col-sm-12 col-md-4" 
                               href={book.volumeInfo.infoLink} 
                               role="button"
                               target="_blank" 
                               rel="noopener noreferrer">View</a>
                             <button 
-                              className="btn btn-secondary my-1 col-sm-12 col-md-4 col-lg-2" 
+                              className="btn btn-secondary my-1 col-sm-12 col-md-4" 
                               type="submit"
                               onClick={(e) => this.handleSave(e, index) }
                             >Save</button>
@@ -115,7 +115,7 @@ class Search extends Component {
               ))}
               </div> 
           ) : (
-            <h3>No results</h3>
+            <h2></h2>
           )}
         </Container>
 
