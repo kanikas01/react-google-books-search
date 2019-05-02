@@ -84,7 +84,7 @@ class Search extends Component {
                             : ""}
                         </small>
                       </p>
-                      <div className="card-main">
+                      <div className="card-main row">
                         <div className="col-12 col-md-3">
                           <img 
                             src={book.volumeInfo.imageLinks 
@@ -95,13 +95,13 @@ class Search extends Component {
                         </div>
                         <div className="col col-md-9">
                           <p className="card-text">{book.volumeInfo.description}</p>
-                          <a className="btn btn-info col-sm-12 col-md-4 col-lg-2" 
+                          <a className="btn btn-info my-1 col-sm-12 col-md-4 col-lg-2" 
                             href={book.volumeInfo.infoLink} 
                             role="button"
                             target="_blank" 
                             rel="noopener noreferrer">View</a>
                           <button 
-                            className="btn btn-secondary my-sm-0 col-sm-12 col-md-4 col-lg-2" 
+                            className="btn btn-secondary my-1 col-sm-12 col-md-4 col-lg-2" 
                             type="submit"
                             onClick={(e) => this.handleSave(e, index) }
                           >Save</button>

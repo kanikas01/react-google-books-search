@@ -7,8 +7,18 @@
   display: flex;
 }
 
+.card-title, small {
+  margin-left: 1rem;
+}
+
+
 @media screen and (max-width: 768px) {
   .card-main {
     display: block;
+  }
+
+  .card-img {
+    float: right;
+    margin-left: 1rem;
   }
 }
