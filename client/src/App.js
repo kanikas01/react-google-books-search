@@ -4,7 +4,6 @@ import Nav from "./components/Nav";
 import SavedBooks from "./pages/SavedBooks";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
-import "./App.css";
 
 class App extends Component {
 
